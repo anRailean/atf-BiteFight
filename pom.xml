@@ -58,20 +58,38 @@
     <dependency>
         <groupId>io.cucumber</groupId>
         <artifactId>cucumber-java</artifactId>
-        <version>5.6.0</version>
+        <version>4.2.0</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
     <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <version>1.18.8</version>
-        <scope>provided</scope>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-junit</artifactId>
+        <version>4.2.0</version>
+        <scope>test</scope>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.reflections/reflections -->
     <dependency>
         <groupId>org.reflections</groupId>
         <artifactId>reflections</artifactId>
         <version>0.9.11</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-core</artifactId>
+        <version>5.2.11.RELEASE</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>5.2.11.RELEASE</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-beans</artifactId>
+        <version>5.2.11.RELEASE</version>
     </dependency>
 </dependencies>
 </project>
