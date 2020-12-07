@@ -15,7 +15,7 @@ public class Hooks {
 
     @Before
     public void before() {
-        driverManager = DriverFactory.getManager(1);
+        driverManager = DriverFactory.getManager("CHROME");
         driver = driverManager.getDriver();
         driver.get("https://en.bitefight.gameforge.com");
         driver.manage().window().maximize();

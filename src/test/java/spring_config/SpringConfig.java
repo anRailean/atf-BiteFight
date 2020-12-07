@@ -1,10 +1,9 @@
-package util.driver_factory;
+package spring_config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan("util.driver_factory")
-public class SpringDriverConfig {
-
+@ComponentScan({"page_object","scenario_context","step_definition"})
+public class SpringConfig {
 }

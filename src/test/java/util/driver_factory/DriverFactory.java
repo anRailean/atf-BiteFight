@@ -2,15 +2,15 @@ package util.driver_factory;
 
 public class DriverFactory {
 
-    public static DriverManager getManager(int type) {
+    public static DriverManager getManager(String type) {
 
         DriverManager driverManager;
 
         switch (type) {
-            case 1:
+            case "CHROME":
                 driverManager = new Chrome();
                 break;
-            case 2:
+            case "EXPLORER":
                 driverManager = new Explorer();
                 break;
             default:
