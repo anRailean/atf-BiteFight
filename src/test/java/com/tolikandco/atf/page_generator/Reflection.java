@@ -1,20 +1,28 @@
-package page_generator;
-
-import org.openqa.selenium.WebElement;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import page_object.Page;
-import page_object.custom_annotation.WebElementName;
-import spring_config.SpringConfig;
+package com.tolikandco.atf.page_generator;
 
 import java.lang.reflect.Field;
 
+import org.openqa.selenium.WebElement;
+import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Component;
+
+import com.tolikandco.atf.page_object.Page;
+import com.tolikandco.atf.page_object.custom_annotation.WebElementName;
+import com.tolikandco.atf.spring_config.SpringConfig;
+
+@Component
 public class Reflection {
 
-    public Page getPageByName(String pageName) {
-        AnnotationConfigApplicationContext context =
-                new AnnotationConfigApplicationContext(SpringConfig.class);
-        return context.getBean(pageName, Page.class);
+    private final ApplicationContext applicationContext;
+
+    public Reflection(final ApplicationContext applicationContext) {
+        this.applicationContext = applicationContext;
     }
+
+    public Page getPageByName(String pageName) {
+        return applicationContext.getBean(pageName, Page.class);
+    }
+
 
     public WebElement getWebElementByName(Page page, String webElementName) {
         Field[] fields = page.getClass().getDeclaredFields();

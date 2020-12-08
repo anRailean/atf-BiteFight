@@ -1,4 +1,4 @@
-package page_object;
+package com.tolikandco.atf.page_object;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

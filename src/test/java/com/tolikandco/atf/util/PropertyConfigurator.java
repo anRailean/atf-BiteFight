@@ -1,4 +1,4 @@
-package util;
+package com.tolikandco.atf.util;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -24,7 +24,7 @@ public class PropertyConfigurator {
         FileInputStream fis = null;
         Properties prop = null;
         try {
-            fis = new FileInputStream("src/test/test_resource/property/test.properties");
+            fis = new FileInputStream("src/test/resources/property/test.properties");
             prop = new Properties();
             prop.load(fis);
         } catch (IOException e) {

@@ -1,11 +1,11 @@
-package step_definition;
+package com.tolikandco.atf.step_definition;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.openqa.selenium.WebDriver;
-import util.driver_factory.DriverFactory;
-import util.driver_factory.DriverManager;
+import com.tolikandco.atf.util.driver_factory.DriverFactory;
+import com.tolikandco.atf.util.driver_factory.DriverManager;
 
 public class Hooks {
 

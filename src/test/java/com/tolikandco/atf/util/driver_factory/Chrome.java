@@ -1,4 +1,4 @@
-package util.driver_factory;
+package com.tolikandco.atf.util.driver_factory;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
@@ -16,7 +16,7 @@ public class Chrome extends DriverManager {
         if (null == chService) {
             try {
                 chService = new ChromeDriverService.Builder()
-                        .usingDriverExecutable(new File("src/test/test_resource/driver/chromedriver.exe"))
+                        .usingDriverExecutable(new File("src/test/resources/driver/chromedriver.exe"))
                         .usingAnyFreePort()
                         .build();
                 chService.start();

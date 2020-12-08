@@ -1,4 +1,4 @@
-package page_object.custom_annotation;
+package com.tolikandco.atf.page_object.custom_annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
