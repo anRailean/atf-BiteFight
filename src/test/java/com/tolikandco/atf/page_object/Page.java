@@ -1,5 +1,5 @@
 package com.tolikandco.atf.page_object;
 
-public abstract class Page {
-
+public interface Page {
+    String getWebElementForAssertion();
 }

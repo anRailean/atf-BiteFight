@@ -1,14 +1,12 @@
 package com.tolikandco.atf.page_generator;
 
-import java.lang.reflect.Field;
-
+import com.tolikandco.atf.page_object.Page;
+import com.tolikandco.atf.page_object.custom_annotation.WebElementName;
 import org.openqa.selenium.WebElement;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
-import com.tolikandco.atf.page_object.Page;
-import com.tolikandco.atf.page_object.custom_annotation.WebElementName;
-import com.tolikandco.atf.spring_config.SpringConfig;
+import java.lang.reflect.Field;
 
 @Component
 public class Reflection {

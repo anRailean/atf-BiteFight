@@ -1,16 +1,16 @@
 package com.tolikandco.atf.page_object;
 
+import com.tolikandco.atf.page_object.custom_annotation.WebElementName;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.springframework.stereotype.Component;
-import com.tolikandco.atf.page_object.custom_annotation.WebElementName;
 
 @Component(BiteFightMainPage.MAIN_PAGE)
-public class BiteFightMainPage extends Page {
+public class BiteFightMainPage implements Page {
 
     public static final String MAIN_PAGE = "Main Page";
 
-    public static final String GAME_ROUND = "Game Round";
+    public static final String GAME_ROUND_DROP_DOWN = "Game Round Drop Down";
 
     public static final String USER_NAME_FIELD = "User Name Field";
 
@@ -18,13 +18,19 @@ public class BiteFightMainPage extends Page {
 
     public static final String LOGIN_BUTTON = "Login Button";
 
+    public static final String VALUE_FROM_DROP_DOWN = "s34-en.bitefight.gameforge.com";
 
+    public static final String WEB_ELEMENT_FOR_ASSERTION = "Web Element Assertion";
+
+    @WebElementName(name = GAME_ROUND_DROP_DOWN)
     @FindBy(xpath = "//*[@id=\"loginSrv\"]")
-    private WebElement gameRound;
+    private WebElement gameRoundDropDown;
 
+    @WebElementName(name = USER_NAME_FIELD)
     @FindBy(xpath = "//*[@id=\"loginName\"]")
     private WebElement userNameField;
 
+    @WebElementName(name = PASSWORD_FIELD)
     @FindBy(xpath = "//*[@id=\"loginPw\"]")
     private WebElement passwordField;
 
@@ -32,4 +38,12 @@ public class BiteFightMainPage extends Page {
     @FindBy(xpath = "//*[@id=\"loginButton\"]")
     private WebElement loginButton;
 
+    @WebElementName(name = WEB_ELEMENT_FOR_ASSERTION)
+    @FindBy(name = "//*[@id=\"loginForm\"]")
+    private WebElement webElementForAssertion;
+
+    @Override
+    public String getWebElementForAssertion() {
+        return WEB_ELEMENT_FOR_ASSERTION;
+    }
 }
