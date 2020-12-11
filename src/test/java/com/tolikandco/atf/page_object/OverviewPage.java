@@ -16,6 +16,7 @@ public class OverviewPage implements Page {
     @FindBy(name = "//*[@id=\"menuHead\"]/li[2]")
     WebElement webElementForAssertion;
 
+    @Override
     public String getWebElementForAssertion() {
         return WEB_ELEMENT_FOR_ASSERTION;
     }

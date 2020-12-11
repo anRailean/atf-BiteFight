@@ -1,7 +1,6 @@
 package com.tolikandco.atf.common_action;
 
 import org.junit.Assert;
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -21,8 +20,8 @@ public class Action {
             ignoring(StaleElementReferenceException.class, ElementNotVisibleException.class);
 
     public void clickOnWebElement(WebElement webElement) {
-//        wait.until(ExpectedConditions.visibilityOf(webElement));
-//        wait.until(ExpectedConditions.elementToBeClickable(webElement));
+        wait.until(ExpectedConditions.visibilityOf(webElement));
+        wait.until(ExpectedConditions.elementToBeClickable(webElement));
         webElement.click();
     }
 

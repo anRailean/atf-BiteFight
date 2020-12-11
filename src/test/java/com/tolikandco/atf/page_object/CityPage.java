@@ -28,6 +28,7 @@ public class CityPage implements Page {
     @FindBy(name = "//*[@id=\"header\"]/h1")
     private WebElement webElementForAssertion;
 
+    @Override
     public String getWebElementForAssertion() {
         return WEB_ELEMENT_FOR_ASSERTION;
     }

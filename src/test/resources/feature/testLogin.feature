@@ -6,4 +6,4 @@ Feature: Test Login Scenario
 
   Scenario: Validate login process
     Given User is logged in bite fight
-    Then User is on "Account Page"
+    Then User is on 'Account Page'

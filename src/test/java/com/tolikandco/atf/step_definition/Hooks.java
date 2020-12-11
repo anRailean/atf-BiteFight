@@ -11,10 +11,12 @@ public class Hooks {
 
     public static WebDriver driver;
     private DriverManager driverManager;
+    public static Scenario currentScenario;
 
 
     @Before
-    public void before() {
+    public void before(Scenario scenario) {
+        currentScenario = scenario;
         driverManager = DriverFactory.getManager("CHROME");
         driver = driverManager.getDriver();
         driver.get("https://en.bitefight.gameforge.com");
@@ -23,6 +25,7 @@ public class Hooks {
 
     @After
     public void after(Scenario scenario) {
+        currentScenario = scenario;
         driver.manage().deleteAllCookies();
         driverManager.quitDriver();
     }

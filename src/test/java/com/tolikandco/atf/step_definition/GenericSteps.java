@@ -3,18 +3,20 @@ package com.tolikandco.atf.step_definition;
 import com.tolikandco.atf.common_action.Action;
 import com.tolikandco.atf.page_generator.Reflection;
 import com.tolikandco.atf.page_object.BiteFightMainPage;
+import com.tolikandco.atf.page_object.account.AccountPage;
 import com.tolikandco.atf.scenario_context.ScenarioContext;
 import com.tolikandco.atf.spring_config.SpringConfig;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.openqa.selenium.WebElement;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import static com.tolikandco.atf.util.PropertyConfigurator.getProperty;
 
 public class GenericSteps {
 
-    AnnotationConfigApplicationContext context =
+    ApplicationContext context =
             new AnnotationConfigApplicationContext(SpringConfig.class);
 
     ScenarioContext scenarioContext = context.getBean("scenarioContext", ScenarioContext.class);
@@ -53,11 +55,13 @@ public class GenericSteps {
 
     @Then("User is on {string}")
     public void userIsOnMainPage(String pageName) {
-        scenarioContext.setCurrentPage(reflection.getPageByName(pageName));
-        WebElement webElementForAssertion = reflection.getWebElementByName(
+        scenarioContext.setCurrentPage(
+                reflection.getPageByName(pageName)
+        );
+        WebElement webElement = reflection.getWebElementByName(
                 scenarioContext.getCurrentPage(), "City Button"
         );
-        action.clickOnWebElement(webElementForAssertion);
+        webElement.click();
     }
 
 
