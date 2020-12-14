@@ -18,9 +18,9 @@ public class BiteFightMainPage implements Page {
 
     public static final String LOGIN_BUTTON = "Login Button";
 
-    public static final String VALUE_FROM_DROP_DOWN = "s34-en.bitefight.gameforge.com";
+    public static final String COUNTY_34_VALUE = "County 34";
 
-    public static final String WEB_ELEMENT_FOR_ASSERTION = "Web Element Assertion";
+    public static final String LOGIN_FORM = "Login Form";
 
     @WebElementName(name = GAME_ROUND_DROP_DOWN)
     @FindBy(xpath = "//*[@id=\"loginSrv\"]")
@@ -38,12 +38,7 @@ public class BiteFightMainPage implements Page {
     @FindBy(xpath = "//*[@id=\"loginButton\"]")
     private WebElement loginButton;
 
-    @WebElementName(name = WEB_ELEMENT_FOR_ASSERTION)
+    @WebElementName(name = LOGIN_FORM)
     @FindBy(name = "//*[@id=\"loginForm\"]")
-    private WebElement webElementForAssertion;
-
-    @Override
-    public String getWebElementForAssertion() {
-        return WEB_ELEMENT_FOR_ASSERTION;
-    }
+    private WebElement loginForm;
 }

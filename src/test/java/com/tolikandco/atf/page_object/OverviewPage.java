@@ -10,14 +10,9 @@ public class OverviewPage implements Page {
 
     public static final String OVERVIEW_PAGE = "Overview Page";
 
-    public static final String WEB_ELEMENT_FOR_ASSERTION = "Web Element Assertion";
+    public static final String OVERVIEW_CONTENT = "Overview Header";
 
-    @WebElementName(name = WEB_ELEMENT_FOR_ASSERTION)
-    @FindBy(name = "//*[@id=\"menuHead\"]/li[2]")
-    WebElement webElementForAssertion;
-
-    @Override
-    public String getWebElementForAssertion() {
-        return WEB_ELEMENT_FOR_ASSERTION;
-    }
+    @WebElementName(name = OVERVIEW_CONTENT)
+    @FindBy(name = "//*[@id=\"userLogo\"]/img")
+    private WebElement overviewContent;
 }

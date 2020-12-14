@@ -28,19 +28,18 @@ public class Action {
     public void sendKeys(WebElement field, String inputData) {
         wait.until(ExpectedConditions.visibilityOf(field));
         wait.until(ExpectedConditions.elementToBeClickable(field));
-        field.clear();
         field.sendKeys(inputData);
     }
 
     public void webElementContainsText(WebElement webElement, String text) {
         wait.until(ExpectedConditions.visibilityOf(webElement));
+        Assert.assertTrue(webElement.getText().contentEquals("Overview"));
     }
 
     public void selectValueFromDropDown(WebElement webElement, String value) {
         wait.until(ExpectedConditions.visibilityOf(webElement));
-        wait.until(ExpectedConditions.elementToBeClickable(webElement));
         Select dropDown = new Select(webElement);
-        dropDown.selectByValue(value);
+        dropDown.selectByVisibleText(value);
     }
 
     public void isAt(WebElement webElement) {

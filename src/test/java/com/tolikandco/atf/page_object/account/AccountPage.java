@@ -13,17 +13,25 @@ public class AccountPage implements Page {
 
     public static final String CITY_BUTTON = "City Button";
 
-    public static final String WEB_ELEMENT_FOR_ASSERTION = "Web Element Assertion";
+    public static final String OVERVIEW_BUTTON = "Overview Button";
+
+    public static final String HUNT_BUTTON = "Hunt Button";
+
+    public static final String HIDEOUT_BUTTON = "Hideout Button";
 
     @WebElementName(name = CITY_BUTTON)
     @FindBy(name = "//*[@id=\"menuHead\"]/li[5]/a")
     WebElement cityButton;
 
-    @WebElementName(name = WEB_ELEMENT_FOR_ASSERTION)
-    @FindBy(name = "//*[@id=\"menuHead\"]/li[2]/a")
-    WebElement webElementForAssertion;
+    @WebElementName(name = OVERVIEW_BUTTON)
+    @FindBy(xpath = "//*[@id=\"menuHead\"]/li[2]/a")
+    WebElement overviewButton;
 
-    public String getWebElementForAssertion() {
-        return WEB_ELEMENT_FOR_ASSERTION;
-    }
+    @WebElementName(name = HUNT_BUTTON)
+    @FindBy(xpath = "//*[@id=\"menuHead\"]/li[6]/a")
+    WebElement huntButton;
+
+    @WebElementName(name = HIDEOUT_BUTTON)
+    @FindBy(xpath = "//*[@id=\"menuHead\"]/li[4]/a")
+    WebElement hideoutButton;
 }

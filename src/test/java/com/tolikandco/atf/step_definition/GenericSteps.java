@@ -3,11 +3,12 @@ package com.tolikandco.atf.step_definition;
 import com.tolikandco.atf.common_action.Action;
 import com.tolikandco.atf.page_generator.Reflection;
 import com.tolikandco.atf.page_object.BiteFightMainPage;
-import com.tolikandco.atf.page_object.account.AccountPage;
 import com.tolikandco.atf.scenario_context.ScenarioContext;
 import com.tolikandco.atf.spring_config.SpringConfig;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.openqa.selenium.WebElement;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -34,7 +35,7 @@ public class GenericSteps {
         WebElement dropDownButton = reflection.getWebElementByName(
                 scenarioContext.getCurrentPage(), BiteFightMainPage.GAME_ROUND_DROP_DOWN
         );
-        action.selectValueFromDropDown(dropDownButton, BiteFightMainPage.VALUE_FROM_DROP_DOWN);
+        action.selectValueFromDropDown(dropDownButton, BiteFightMainPage.COUNTY_34_VALUE);
 
         WebElement userNameField = reflection.getWebElementByName(
                 scenarioContext.getCurrentPage(), BiteFightMainPage.USER_NAME_FIELD
@@ -52,21 +53,70 @@ public class GenericSteps {
         action.clickOnWebElement(loginButton);
     }
 
-
     @Then("User is on {string}")
-    public void userIsOnMainPage(String pageName) {
+    public void userIsOnPage(String pageName) {
         scenarioContext.setCurrentPage(
                 reflection.getPageByName(pageName)
         );
-        WebElement webElement = reflection.getWebElementByName(
-                scenarioContext.getCurrentPage(), "City Button"
-        );
-        webElement.click();
     }
-
 
     @Then("{string} is displayed")
     public void webElementIsDisplayed(String webElement) {
-        action.isAt(reflection.getWebElementByName(scenarioContext.getCurrentPage(), webElement));
+        action.isAt(
+                reflection.getWebElementByName(
+                        scenarioContext.getCurrentPage(), webElement
+                )
+        );
+    }
+
+    @And("User clicks on {string} in {string}")
+    public void userNavigateToPageOnAccount(String webElement, String pageName) {
+        scenarioContext.setCurrentPage(
+                reflection.getPageByName(pageName)
+        );
+        scenarioContext.setWebElement(
+                reflection.getWebElementByName(
+                        scenarioContext.getCurrentPage(), webElement
+                )
+        );
+        action.clickOnWebElement(
+                scenarioContext.getWebElement()
+        );
+    }
+
+    @When("User clicks in {string}")
+    public void userClicksIn(String webElement) {
+        scenarioContext.setWebElement(
+                reflection.getWebElementByName(
+                        scenarioContext.getCurrentPage(), webElement
+                )
+        );
+        action.clickOnWebElement(
+                scenarioContext.getWebElement()
+        );
+    }
+
+    @And("User provides (.*) in (.*)")
+    public void userEntersIn(String credentials, String field) {
+        scenarioContext.getCurrentPage();
+        scenarioContext.setWebElement(
+                reflection.getWebElementByName(
+                        scenarioContext.getCurrentPage(), field
+                )
+        );
+        action.sendKeys(scenarioContext.getWebElement(), credentials);
+    }
+
+    @And("User selects (.*) from (.*)")
+    public void userSelectsValueFromDropDown(String value, String field) {
+        scenarioContext.getCurrentPage();
+        scenarioContext.setWebElement(
+                reflection.getWebElementByName(
+                        scenarioContext.getCurrentPage(), field
+                )
+        );
+        action.selectValueFromDropDown(
+                scenarioContext.getWebElement(), value
+        );
     }
 }

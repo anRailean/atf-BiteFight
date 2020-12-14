@@ -10,7 +10,7 @@ public class CityPage implements Page {
 
     public static final String CITY_PAGE = "City Page";
 
-    public static final String WEB_ELEMENT_FOR_ASSERTION = "Web Element Assertion";
+    public static final String CITY_HEADER = "City Header";
 
     @FindBy(xpath = "//*[@id=\"addBuddy\"]/div[2]/div/div[2]/table/tbody/tr[1]/td[2]/a")
     private WebElement merchant;
@@ -24,13 +24,7 @@ public class CityPage implements Page {
     @FindBy(xpath = "//*[@id=\"addBuddy\"]/div[2]/div/div[2]/table/tbody/tr[4]/td[2]/a")
     private WebElement grotto;
 
-    @WebElementName(name = WEB_ELEMENT_FOR_ASSERTION)
+    @WebElementName(name = CITY_HEADER)
     @FindBy(name = "//*[@id=\"header\"]/h1")
-    private WebElement webElementForAssertion;
-
-    @Override
-    public String getWebElementForAssertion() {
-        return WEB_ELEMENT_FOR_ASSERTION;
-    }
-
+    private WebElement cityHeader;
 }
